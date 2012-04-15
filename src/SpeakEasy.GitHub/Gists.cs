@@ -102,9 +102,9 @@ namespace SpeakEasy.GitHub
             return client.Patch(comment, "gists/comments/:id", new { id }).OnOk().As<Comment>();
         }
 
-        public Comment DeleteComment(long id)
+        public bool DeleteComment(long id)
         {
-            return client.Patch(comment, "gists/comments/:id", new { id }).OnOk().As<Comment>();
+            return client.Delete("gists/comments/:id", new { id }).Is(HttpStatusCode.NoContent);
         }
     }
 }

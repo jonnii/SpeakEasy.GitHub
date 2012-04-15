@@ -51,6 +51,7 @@
     <Compile Include="Gists.cs" />
     <Compile Include="GitHubApi.cs" />
     <Compile Include="GithubContractResolver.cs" />
+    <Compile Include="Issues.cs" />
     <Compile Include="Models\ChangeStatus.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Commit.cs" />
@@ -59,10 +60,16 @@
     <Compile Include="Models\GistHeader.cs" />
     <Compile Include="Models\GistFile.cs" />
     <Compile Include="Models\History.cs" />
+    <Compile Include="Models\Issue.cs" />
+    <Compile Include="Models\Label.cs" />
+    <Compile Include="Models\Milestone.cs" />
+    <Compile Include="Models\NewComment.cs" />
     <Compile Include="Models\NewFileContent.cs" />
     <Compile Include="Models\NewGist.cs" />
+    <Compile Include="Models\NewIssue.cs" />
     <Compile Include="Models\NewRepository.cs" />
     <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\PullRequest.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\RepositoryHeader.cs" />
     <Compile Include="Models\User.cs" />

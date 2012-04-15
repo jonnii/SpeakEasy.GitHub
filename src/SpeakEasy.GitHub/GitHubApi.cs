@@ -10,7 +10,7 @@ namespace SpeakEasy.GitHub
         public static GitHubApi CreateAnonymous()
         {
             var settings = HttpClientSettings.Default;
-            
+
             settings.Configure<JsonDotNetSerializer>(j => j.ConfigureSettings(s => s.ContractResolver = new GithubContractResolver()));
             settings.Logger = new ConsoleLogger();
 
@@ -40,6 +40,7 @@ namespace SpeakEasy.GitHub
 
             Repositories = new Repositories(client);
             Gists = new Gists(client);
+            Issues = new Issues(client);
         }
 
         public event EventHandler<EventArgs> ReachingRequestLimit;
@@ -47,6 +48,8 @@ namespace SpeakEasy.GitHub
         public Repositories Repositories { get; private set; }
 
         public Gists Gists { get; private set; }
+
+        public Issues Issues { get; private set; }
 
         private void ClientOnAfterRequest(object sender, AfterRequestEventArgs args)
         {
