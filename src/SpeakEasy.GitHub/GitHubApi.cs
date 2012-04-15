@@ -42,6 +42,7 @@ namespace SpeakEasy.GitHub
             Gists = new Gists(client);
             Issues = new Issues(client);
             Milestones = new Milestones(client);
+            Labels = new Labels(client);
         }
 
         public event EventHandler<EventArgs> ReachingRequestLimit;
@@ -53,6 +54,8 @@ namespace SpeakEasy.GitHub
         public Issues Issues { get; private set; }
 
         public Milestones Milestones { get; private set; }
+
+        public Labels Labels { get; private set; }
 
         private void ClientOnAfterRequest(object sender, AfterRequestEventArgs args)
         {
