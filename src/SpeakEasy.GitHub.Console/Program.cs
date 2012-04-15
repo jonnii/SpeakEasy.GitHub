@@ -1,17 +1,18 @@
-﻿namespace SpeakEasy.GitHub.Console
+﻿using System.Linq;
+
+namespace SpeakEasy.GitHub.Console
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var api = new GitHubApi();
+            var api = GitHubApi.CreateAnonymous();
 
-            var repositories = api.GetRepositoriesForUser("jonnii");
+            var header = api.GetRepositoriesForUser("jonnii").Single(r => r.Name == "SpeakEasy");
+            System.Console.WriteLine(header);
 
-            foreach (var repository in repositories)
-            {
-                System.Console.WriteLine(repository);
-            }
+            var repository = api.GetRepository("jonnii", "SpeakEasy");
+            System.Console.WriteLine(repository);
 
             System.Console.ReadLine();
         }
