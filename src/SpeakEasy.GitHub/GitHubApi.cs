@@ -1,5 +1,6 @@
 ﻿using System;
 using SpeakEasy.Authenticators;
+using SpeakEasy.Loggers;
 using SpeakEasy.Serializers;
 
 namespace SpeakEasy.GitHub
@@ -9,7 +10,10 @@ namespace SpeakEasy.GitHub
         public static GitHubApi CreateAnonymous()
         {
             var settings = HttpClientSettings.Default;
+            
             settings.Configure<JsonDotNetSerializer>(j => j.ConfigureSettings(s => s.ContractResolver = new GithubContractResolver()));
+            settings.Logger = new ConsoleLogger();
+
             var client = HttpClient.Create("https://api.github.com", settings);
 
             return new GitHubApi(client);

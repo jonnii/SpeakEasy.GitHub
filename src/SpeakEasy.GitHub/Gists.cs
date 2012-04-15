@@ -18,9 +18,9 @@ namespace SpeakEasy.GitHub
             return client.Get("users/:user/gists", new { user }).OnOk().As<List<GistHeader>>();
         }
 
-        public IEnumerable<GistHeader> GetAll()
+        public IEnumerable<GistHeader> GetAll(int page = 1, int perPage = 30)
         {
-            return client.Get("gists").OnOk().As<List<GistHeader>>();
+            return client.Get("gists", new { page, per_page = perPage }).OnOk().As<List<GistHeader>>();
         }
 
         public IEnumerable<GistHeader> GetPublic()
@@ -80,6 +80,31 @@ namespace SpeakEasy.GitHub
         public bool Delete(long id)
         {
             return client.Delete("gists/:id", new { id }).Is(HttpStatusCode.NoContent);
+        }
+
+        public IEnumerable<Comment> GetComments(long id)
+        {
+            return client.Get("gists/:id/comments", new { id }).OnOk().As<List<Comment>>();
+        }
+
+        public Comment GetComment(long id)
+        {
+            return client.Get("gists/comments/:id", new { id }).OnOk().As<Comment>();
+        }
+
+        public Comment Create(long id, NewComment comment)
+        {
+            return client.Post(comment, "gists/:id/comments", new { id }).On(HttpStatusCode.Created).As<Comment>();
+        }
+
+        public Comment Edit(long id, NewComment comment)
+        {
+            return client.Patch(comment, "gists/comments/:id", new { id }).OnOk().As<Comment>();
+        }
+
+        public Comment DeleteComment(long id)
+        {
+            return client.Patch(comment, "gists/comments/:id", new { id }).OnOk().As<Comment>();
         }
     }
 }
