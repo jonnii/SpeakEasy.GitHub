@@ -34,9 +34,25 @@ namespace SpeakEasy.GitHub
         public GitHubApi(IHttpClient client)
         {
             this.client = client;
+
+            client.AfterRequest += ClientOnAfterRequest;
         }
 
         public event EventHandler<EventArgs> ReachingRequestLimit;
+
+        private void ClientOnAfterRequest(object sender, AfterRequestEventArgs args)
+        {
+            var remaining = int.Parse(args.Response.GetHeaderValue("X-RateLimit-Remaining"));
+
+            if (remaining < 500)
+            {
+                var handler = ReachingRequestLimit;
+                if (handler != null)
+                {
+                    ReachingRequestLimit(this, EventArgs.Empty);
+                }
+            }
+        }
 
         public IEnumerable<RepositoryHeader> MyRepositories()
         {
