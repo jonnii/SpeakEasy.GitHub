@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using SpeakEasy.GitHub.Models;
 
 namespace SpeakEasy.GitHub
@@ -35,6 +36,11 @@ namespace SpeakEasy.GitHub
         public Gist Get(long id)
         {
             return client.Get("gists/:id", new { id }).OnOk().As<Gist>();
+        }
+
+        public Gist Create(NewGist newGist)
+        {
+            return client.Post(newGist, "gists").On(HttpStatusCode.Created).As<Gist>();
         }
     }
 }
