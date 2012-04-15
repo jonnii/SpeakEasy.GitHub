@@ -46,9 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gists.cs" />
     <Compile Include="GitHubApi.cs" />
     <Compile Include="GithubContractResolver.cs" />
+    <Compile Include="Models\ChangeStatus.cs" />
     <Compile Include="Models\Commit.cs" />
+    <Compile Include="Models\Fork.cs" />
+    <Compile Include="Models\Gist.cs" />
+    <Compile Include="Models\GistHeader.cs" />
+    <Compile Include="Models\GistFile.cs" />
+    <Compile Include="Models\History.cs" />
     <Compile Include="Models\NewRepository.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Repository.cs" />

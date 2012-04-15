@@ -35,23 +35,28 @@ namespace SpeakEasy.GitHub
             client.AfterRequest += ClientOnAfterRequest;
 
             Repositories = new Repositories(client);
+            Gists = new Gists(client);
         }
 
         public event EventHandler<EventArgs> ReachingRequestLimit;
 
         public Repositories Repositories { get; private set; }
 
+        public Gists Gists { get; private set; }
+
         private void ClientOnAfterRequest(object sender, AfterRequestEventArgs args)
         {
             var remaining = int.Parse(args.Response.GetHeaderValue("X-RateLimit-Remaining"));
 
-            if (remaining < 500)
+            if (remaining >= 500)
             {
-                var handler = ReachingRequestLimit;
-                if (handler != null)
-                {
-                    ReachingRequestLimit(this, EventArgs.Empty);
-                }
+                return;
+            }
+
+            var handler = ReachingRequestLimit;
+            if (handler != null)
+            {
+                ReachingRequestLimit(this, EventArgs.Empty);
             }
         }
     }
