@@ -42,5 +42,44 @@ namespace SpeakEasy.GitHub
         {
             return client.Post(newGist, "gists").On(HttpStatusCode.Created).As<Gist>();
         }
+
+        public Gist Edit(long id, NewGist updatedGist)
+        {
+            return client.Patch(updatedGist, "gists/:id", id).OnOk().As<Gist>();
+        }
+
+        public bool Star(long id)
+        {
+            return client.Put("gists/:id/star", new { id }).Is(HttpStatusCode.NoContent);
+        }
+
+        public bool Unstar(long id)
+        {
+            return client.Delete("gists/:id/star", new { id }).Is(HttpStatusCode.NoContent);
+        }
+
+        public bool IsStarred(long id)
+        {
+            var response = client.Get("gists/:id/star", new { id });
+
+            if (response.Is(HttpStatusCode.NotFound))
+            {
+                return false;
+            }
+
+            response.On(HttpStatusCode.NoContent);
+
+            return true;
+        }
+
+        public GistHeader Fork(long id)
+        {
+            return client.Post("gists/:id/fork", new { id }).On(HttpStatusCode.Created).As<GistHeader>();
+        }
+
+        public bool Delete(long id)
+        {
+            return client.Delete("gists/:id", new { id }).Is(HttpStatusCode.NoContent);
+        }
     }
 }
