@@ -8,10 +8,10 @@ namespace SpeakEasy.GitHub.Console
         {
             var api = GitHubApi.CreateAnonymous();
 
-            var header = api.GetRepositoriesForUser("jonnii").Single(r => r.Name == "SpeakEasy");
+            var header = api.Repositories.GetForUser("jonnii").Single(r => r.Name == "SpeakEasy");
             System.Console.WriteLine(header);
 
-            var repository = api.GetRepository("jonnii", "SpeakEasy");
+            var repository = api.Repositories.Get("jonnii", "SpeakEasy");
             System.Console.WriteLine(repository);
 
             System.Console.ReadLine();

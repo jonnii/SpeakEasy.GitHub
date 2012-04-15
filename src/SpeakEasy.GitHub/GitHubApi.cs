@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
 using SpeakEasy.Authenticators;
-using SpeakEasy.GitHub.Models;
 using SpeakEasy.Serializers;
 
 namespace SpeakEasy.GitHub
@@ -36,9 +33,13 @@ namespace SpeakEasy.GitHub
             this.client = client;
 
             client.AfterRequest += ClientOnAfterRequest;
+
+            Repositories = new Repositories(client);
         }
 
         public event EventHandler<EventArgs> ReachingRequestLimit;
+
+        public Repositories Repositories { get; private set; }
 
         private void ClientOnAfterRequest(object sender, AfterRequestEventArgs args)
         {
@@ -52,40 +53,6 @@ namespace SpeakEasy.GitHub
                     ReachingRequestLimit(this, EventArgs.Empty);
                 }
             }
-        }
-
-        public IEnumerable<RepositoryHeader> MyRepositories()
-        {
-            return client.Get("user/repos").OnOk()
-                .As<List<RepositoryHeader>>();
-        }
-
-        public IEnumerable<RepositoryHeader> GetRepositoriesForUser(string user)
-        {
-            return client.Get("users/:user/repos", new { user }).OnOk()
-                .As<List<RepositoryHeader>>();
-        }
-
-        public IEnumerable<RepositoryHeader> GetRepositoriesForOrganisation(string org)
-        {
-            return client.Get("users/:org/repos", new { org }).OnOk()
-                .As<List<RepositoryHeader>>();
-        }
-
-        public RepositoryHeader Create(NewRepository repository)
-        {
-            return client.Post(repository, "user/repos").On(HttpStatusCode.Created).As<RepositoryHeader>();
-        }
-
-        public RepositoryHeader Create(string org, NewRepository repository)
-        {
-            return client.Post(repository, "orgs/:org/repos", new { org }).On(HttpStatusCode.Created).As<RepositoryHeader>();
-        }
-
-        public Repository GetRepository(string user, string repo)
-        {
-            return client.Get("repos/:user/:repo", new { user, repo }).OnOk()
-                .As<Repository>();
         }
     }
 }

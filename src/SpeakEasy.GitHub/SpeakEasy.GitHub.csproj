@@ -55,6 +55,7 @@
     <Compile Include="Models\RepositoryHeader.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
