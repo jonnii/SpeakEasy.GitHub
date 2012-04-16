@@ -48,16 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorizations.cs" />
     <Compile Include="Gists.cs" />
     <Compile Include="GitHubApi.cs" />
     <Compile Include="GithubContractResolver.cs" />
     <Compile Include="Issues.cs" />
     <Compile Include="Labels.cs" />
     <Compile Include="Milestones.cs" />
+    <Compile Include="Models\App.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="Models\Authorization.cs" />
     <Compile Include="Models\ChangeStatus.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Commit.cs" />
+    <Compile Include="Models\EditAuthorization.cs" />
     <Compile Include="Models\Fork.cs" />
     <Compile Include="Models\Gist.cs" />
     <Compile Include="Models\GistHeader.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\Milestone.cs" />
+    <Compile Include="Models\SaveAuthorization.cs" />
     <Compile Include="Models\SaveComment.cs" />
     <Compile Include="Models\SaveFileContent.cs" />
     <Compile Include="Models\SaveGist.cs" />
