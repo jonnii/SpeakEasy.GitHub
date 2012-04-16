@@ -41,11 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorizations.cs" />
@@ -53,6 +49,7 @@
     <Compile Include="GitHubApi.cs" />
     <Compile Include="GithubContractResolver.cs" />
     <Compile Include="Issues.cs" />
+    <Compile Include="Keys.cs" />
     <Compile Include="Labels.cs" />
     <Compile Include="Milestones.cs" />
     <Compile Include="Models\App.cs" />
@@ -68,6 +65,7 @@
     <Compile Include="Models\GistFile.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\Issue.cs" />
+    <Compile Include="Models\Key.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\Milestone.cs" />
     <Compile Include="Models\SaveAuthorization.cs" />
@@ -75,6 +73,7 @@
     <Compile Include="Models\SaveFileContent.cs" />
     <Compile Include="Models\SaveGist.cs" />
     <Compile Include="Models\SaveIssue.cs" />
+    <Compile Include="Models\SaveKey.cs" />
     <Compile Include="Models\SaveLabel.cs" />
     <Compile Include="Models\SaveMilestone.cs" />
     <Compile Include="Models\SaveRepository.cs" />

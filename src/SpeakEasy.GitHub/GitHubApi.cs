@@ -45,9 +45,12 @@ namespace SpeakEasy.GitHub
             Labels = new Labels(client);
             Users = new Users(client);
             Authorizations = new Authorizations(client);
+            Keys = new Keys(client);
         }
 
         public Authorizations Authorizations { get; private set; }
+
+        public Keys Keys { get; private set; }
 
         public event EventHandler<EventArgs> ReachingRequestLimit;
 
