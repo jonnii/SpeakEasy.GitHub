@@ -6,7 +6,7 @@ namespace SpeakEasy.GitHub.Models
 
         public string Version { get; set; }
 
-        public User User { get; set; }
+        public UserHeader User { get; set; }
 
         public ChangeStatus ChangeStatus { get; set; }
 

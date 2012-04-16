@@ -1,6 +1,6 @@
 namespace SpeakEasy.GitHub.Models
 {
-    public class NewLabel
+    public class SaveLabel
     {
         public string Name { get; set; }
 

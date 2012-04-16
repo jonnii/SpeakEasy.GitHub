@@ -12,6 +12,6 @@ namespace SpeakEasy.GitHub.Models
 
         public DateTime CreatedAt { get; set; }
 
-        public User User { get; set; }
+        public UserHeader User { get; set; }
     }
 }

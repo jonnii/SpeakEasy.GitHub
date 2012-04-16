@@ -6,12 +6,10 @@
         {
             var api = GitHubApi.CreateAnonymous();
 
-            var issues = api.Issues.List("jonnii", "speakeasy", state: "closed");
+            var user = api.Users.Get();
 
-            foreach (var issue in issues)
-            {
-                System.Console.WriteLine(issue.Title);
-            }
+            System.Console.WriteLine(user.Id);
+            System.Console.WriteLine(user.Name);
 
             System.Console.ReadLine();
         }

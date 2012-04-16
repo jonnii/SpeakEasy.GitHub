@@ -1,6 +1,6 @@
 namespace SpeakEasy.GitHub.Models
 {
-    public class Organization : User
+    public class Organization : UserHeader
     {
         public string Type { get; set; }
     }

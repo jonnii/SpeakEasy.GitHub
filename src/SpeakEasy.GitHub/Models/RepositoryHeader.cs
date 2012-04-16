@@ -40,7 +40,7 @@ namespace SpeakEasy.GitHub.Models
 
         public DateTime UpdatedAt { get; set; }
 
-        public User Owner { get; set; }
+        public UserHeader Owner { get; set; }
 
         public string Name { get; set; }
 

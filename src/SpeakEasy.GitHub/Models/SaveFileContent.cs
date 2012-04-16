@@ -1,6 +1,6 @@
 namespace SpeakEasy.GitHub.Models
 {
-    public class NewFileContent
+    public class SaveFileContent
     {
         public string Filename { get; set; }
 

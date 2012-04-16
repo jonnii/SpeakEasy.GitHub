@@ -13,7 +13,7 @@ namespace SpeakEasy.GitHub.Models
 
         public bool Public { get; set; }
 
-        public User User { get; set; }
+        public UserHeader User { get; set; }
 
         public Dictionary<string, GistFile> Files { get; set; }
 

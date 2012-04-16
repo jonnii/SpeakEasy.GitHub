@@ -1,6 +1,6 @@
 namespace SpeakEasy.GitHub.Models
 {
-    public class NewRepository
+    public class SaveRepository
     {
         public string Name { get; set; }
 

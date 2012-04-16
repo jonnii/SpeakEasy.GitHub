@@ -37,12 +37,12 @@ namespace SpeakEasy.GitHub
             return client.Get("repos/:user/:repo/issues/:number", new { user, repo, number }).OnOk().As<Issue>();
         }
 
-        public Issue Create(string user, string repo, NewIssue issue)
+        public Issue Create(string user, string repo, SaveIssue issue)
         {
             return client.Post(issue, "repos/:user/:repo/issues", new { user, repo }).On(HttpStatusCode.Created).As<Issue>();
         }
 
-        public Issue Edit(string user, string repo, long number, NewIssue issue)
+        public Issue Edit(string user, string repo, long number, SaveIssue issue)
         {
             return client.Post(issue, "repos/:user/:repo/issues/:number", new { user, repo, number }).OnOk().As<Issue>();
         }

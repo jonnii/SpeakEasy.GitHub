@@ -54,6 +54,7 @@
     <Compile Include="Issues.cs" />
     <Compile Include="Labels.cs" />
     <Compile Include="Milestones.cs" />
+    <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\ChangeStatus.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Commit.cs" />
@@ -65,20 +66,24 @@
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\Milestone.cs" />
-    <Compile Include="Models\NewComment.cs" />
-    <Compile Include="Models\NewFileContent.cs" />
-    <Compile Include="Models\NewGist.cs" />
-    <Compile Include="Models\NewIssue.cs" />
-    <Compile Include="Models\NewLabel.cs" />
-    <Compile Include="Models\NewMilestone.cs" />
-    <Compile Include="Models\NewRepository.cs" />
+    <Compile Include="Models\SaveComment.cs" />
+    <Compile Include="Models\SaveFileContent.cs" />
+    <Compile Include="Models\SaveGist.cs" />
+    <Compile Include="Models\SaveIssue.cs" />
+    <Compile Include="Models\SaveLabel.cs" />
+    <Compile Include="Models\SaveMilestone.cs" />
+    <Compile Include="Models\SaveRepository.cs" />
     <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\Plan.cs" />
     <Compile Include="Models\PullRequest.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\RepositoryHeader.cs" />
+    <Compile Include="Models\SaveUser.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories.cs" />
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

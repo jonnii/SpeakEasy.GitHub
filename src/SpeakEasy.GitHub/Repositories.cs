@@ -37,12 +37,12 @@ namespace SpeakEasy.GitHub
                 .As<List<RepositoryHeader>>();
         }
 
-        public RepositoryHeader Create(NewRepository repository)
+        public RepositoryHeader Create(SaveRepository repository)
         {
             return client.Post(repository, "user/repos").On(HttpStatusCode.Created).As<RepositoryHeader>();
         }
 
-        public RepositoryHeader Create(string org, NewRepository repository)
+        public RepositoryHeader Create(string org, SaveRepository repository)
         {
             return client.Post(repository, "orgs/:org/repos", new { org }).On(HttpStatusCode.Created).As<RepositoryHeader>();
         }

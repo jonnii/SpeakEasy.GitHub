@@ -2,7 +2,7 @@ namespace SpeakEasy.GitHub.Models
 {
     public class Fork
     {
-        public User User { get; set; }
+        public UserHeader User { get; set; }
 
         public string Url { get; set; }
 

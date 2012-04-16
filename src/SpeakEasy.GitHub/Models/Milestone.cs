@@ -7,7 +7,7 @@ namespace SpeakEasy.GitHub.Models
         public string State { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public User Creator { get; set; }
+        public UserHeader Creator { get; set; }
         public int OpenIssues { get; set; }
         public int ClosedIssues { get; set; }
         public string CreatedAt { get; set; }

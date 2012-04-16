@@ -28,12 +28,12 @@ namespace SpeakEasy.GitHub
             return client.Get("repos/:user/:repo/labels/:name", new { user, repo, name }).OnOk().As<Label>();
         }
 
-        public Label Create(string user, string repo, NewLabel label)
+        public Label Create(string user, string repo, SaveLabel label)
         {
             return client.Post(label, "repos/:user/:repo/labels", new { user, repo }).On(HttpStatusCode.Created).As<Label>();
         }
 
-        public Label Edit(string user, string repo, NewLabel label)
+        public Label Edit(string user, string repo, SaveLabel label)
         {
             return client.Patch(label, "repos/:user/:repo/labels", new { user, repo }).OnOk().As<Label>();
         }

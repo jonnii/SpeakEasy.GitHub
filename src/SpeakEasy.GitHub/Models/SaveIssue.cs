@@ -1,6 +1,6 @@
 namespace SpeakEasy.GitHub.Models
 {
-    public class NewIssue
+    public class SaveIssue
     {
         public string Title { get; set; }
 

@@ -2,17 +2,17 @@ using System.Collections.Generic;
 
 namespace SpeakEasy.GitHub.Models
 {
-    public class NewGist
+    public class SaveGist
     {
-        public NewGist()
+        public SaveGist()
         {
-            Files = new Dictionary<string, NewFileContent>();
+            Files = new Dictionary<string, SaveFileContent>();
         }
 
         public string Description { get; set; }
 
         public bool Public { get; set; }
 
-        public Dictionary<string, NewFileContent> Files { get; set; }
+        public Dictionary<string, SaveFileContent> Files { get; set; }
     }
 }

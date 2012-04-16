@@ -23,12 +23,12 @@ namespace SpeakEasy.GitHub
             return client.Get("repos/:user/:repo/milestones/:number", new { user, repo, number }).OnOk().As<Milestone>();
         }
 
-        public Milestone Create(string user, string repo, NewMilestone milestone)
+        public Milestone Create(string user, string repo, SaveMilestone milestone)
         {
             return client.Post(milestone, "repos/:user/:repo/milestones/:number", new { user, repo }).On(HttpStatusCode.Created).As<Milestone>();
         }
 
-        public Milestone Edit(string user, string repo, long number, NewMilestone milestone)
+        public Milestone Edit(string user, string repo, long number, SaveMilestone milestone)
         {
             return client.Patch(milestone, "repos/:user/:repo/milestones/:number", new { user, repo }).OnOk().As<Milestone>();
         }

@@ -10,9 +10,9 @@ namespace SpeakEasy.GitHub.Models
         public string State { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
-        public User User { get; set; }
+        public UserHeader User { get; set; }
         public List<Label> Labels { get; set; }
-        public User Assignee { get; set; }
+        public UserHeader Assignee { get; set; }
         public Milestone Milestone { get; set; }
         public int Comments { get; set; }
         public PullRequest PullRequest { get; set; }

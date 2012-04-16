@@ -2,7 +2,7 @@ using System;
 
 namespace SpeakEasy.GitHub.Models
 {
-    public class NewMilestone
+    public class SaveMilestone
     {
         public string Title { get; set; }
 

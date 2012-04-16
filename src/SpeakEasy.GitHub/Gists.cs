@@ -38,12 +38,12 @@ namespace SpeakEasy.GitHub
             return client.Get("gists/:id", new { id }).OnOk().As<Gist>();
         }
 
-        public Gist Create(NewGist newGist)
+        public Gist Create(SaveGist saveGist)
         {
-            return client.Post(newGist, "gists").On(HttpStatusCode.Created).As<Gist>();
+            return client.Post(saveGist, "gists").On(HttpStatusCode.Created).As<Gist>();
         }
 
-        public Gist Edit(long id, NewGist updatedGist)
+        public Gist Edit(long id, SaveGist updatedGist)
         {
             return client.Patch(updatedGist, "gists/:id", id).OnOk().As<Gist>();
         }
@@ -92,12 +92,12 @@ namespace SpeakEasy.GitHub
             return client.Get("gists/comments/:id", new { id }).OnOk().As<Comment>();
         }
 
-        public Comment Create(long id, NewComment comment)
+        public Comment Create(long id, SaveComment comment)
         {
             return client.Post(comment, "gists/:id/comments", new { id }).On(HttpStatusCode.Created).As<Comment>();
         }
 
-        public Comment Edit(long id, NewComment comment)
+        public Comment Edit(long id, SaveComment comment)
         {
             return client.Patch(comment, "gists/comments/:id", new { id }).OnOk().As<Comment>();
         }
