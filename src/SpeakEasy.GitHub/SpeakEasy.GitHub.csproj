@@ -37,7 +37,7 @@
     </Reference>
     <Reference Include="SpeakEasy, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SpeakEasy.0.1.1-dev-20120415173303\lib\net40\SpeakEasy.dll</HintPath>
+      <HintPath>..\packages\SpeakEasy.0.1.1-dev-20120415213758\lib\net40\SpeakEasy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

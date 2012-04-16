@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using SpeakEasy.GitHub.Models;
@@ -13,14 +14,22 @@ namespace SpeakEasy.GitHub
             this.client = client;
         }
 
-        public IEnumerable<Issue> GetMine()
+        public IEnumerable<Issue> ListMine()
         {
             return client.Get("issues").OnOk().As<List<Issue>>();
         }
 
-        public IEnumerable<Issue> Get(string user, string repo)
+        public IEnumerable<Issue> List(
+            string user,
+            string repo,
+            string filter = null,
+            string state = null,
+            string[] labels = null,
+            string sort = null,
+            string direction = null,
+            DateTime? since = null)
         {
-            return client.Get("repos/:user/:repo/issues", new { user, repo }).OnOk().As<List<Issue>>();
+            return client.Get("repos/:user/:repo/issues", new { user, repo, filter, state, labels, sort, direction, since }).OnOk().As<List<Issue>>();
         }
 
         public Issue Get(string user, string repo, long number)
