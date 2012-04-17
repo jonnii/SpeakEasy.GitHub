@@ -1,4 +1,6 @@
-﻿namespace SpeakEasy.GitHub.Console
+﻿using System.Linq;
+
+namespace SpeakEasy.GitHub.Console
 {
     public class Program
     {
@@ -6,10 +8,9 @@
         {
             var api = GitHubApi.CreateAnonymous();
 
-            var user = api.Users.Get();
+            var gist = api.Gists.List(1, 50);
 
-            System.Console.WriteLine(user.Id);
-            System.Console.WriteLine(user.Name);
+            System.Console.WriteLine(gist.Count());
 
             System.Console.ReadLine();
         }

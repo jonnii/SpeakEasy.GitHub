@@ -13,22 +13,22 @@ namespace SpeakEasy.GitHub
             this.client = client;
         }
 
-        public IEnumerable<GistHeader> GetForUser(string user)
+        public IEnumerable<GistHeader> ListForUser(string user)
         {
             return client.Get("users/:user/gists", new { user }).OnOk().As<List<GistHeader>>();
         }
 
-        public IEnumerable<GistHeader> GetAll(int page = 1, int perPage = 30)
+        public IEnumerable<GistHeader> List(int page = 1, int perPage = 30)
         {
-            return client.Get("gists", new { page, per_page = perPage }).OnOk().As<List<GistHeader>>();
+            return client.Get("gists", new { page, perPage }).OnOk().As<List<GistHeader>>();
         }
 
-        public IEnumerable<GistHeader> GetPublic()
+        public IEnumerable<GistHeader> ListPublic()
         {
             return client.Get("gists/public").OnOk().As<List<GistHeader>>();
         }
 
-        public IEnumerable<GistHeader> GetStarred()
+        public IEnumerable<GistHeader> ListStarred()
         {
             return client.Get("gists/starred").OnOk().As<List<GistHeader>>();
         }

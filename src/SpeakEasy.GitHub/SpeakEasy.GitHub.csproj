@@ -35,9 +35,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SpeakEasy, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SpeakEasy, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SpeakEasy.0.1.1-dev-20120415213758\lib\net40\SpeakEasy.dll</HintPath>
+      <HintPath>..\packages\SpeakEasy.0.1.2-dev-20120416202934\lib\net40\SpeakEasy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -87,6 +87,7 @@
     <Compile Include="Models\UserHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories.cs" />
+    <Compile Include="UnderscoreNamingConvention.cs" />
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>

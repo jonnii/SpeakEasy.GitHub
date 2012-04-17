@@ -9,9 +9,7 @@ namespace SpeakEasy.GitHub
     {
         public static GitHubApi CreateAnonymous()
         {
-            var settings = HttpClientSettings.Default;
-
-            settings.Configure<JsonDotNetSerializer>(j => j.ConfigureSettings(s => s.ContractResolver = new GithubContractResolver()));
+            var settings = CreateDefaultSettings();
             settings.Logger = new ConsoleLogger();
 
             var client = HttpClient.Create("https://api.github.com", settings);
@@ -21,13 +19,21 @@ namespace SpeakEasy.GitHub
 
         public static GitHubApi CreateWithBasicAuthentication(string username, string password)
         {
-            var settings = HttpClientSettings.Default;
-            settings.Configure<JsonDotNetSerializer>(j => j.ConfigureSettings(s => s.ContractResolver = new GithubContractResolver()));
+            var settings = CreateDefaultSettings();
             settings.Authenticator = new BasicAuthenticator(username, password);
 
             var client = HttpClient.Create("https://api.github.com", settings);
 
             return new GitHubApi(client);
+        }
+
+        private static HttpClientSettings CreateDefaultSettings()
+        {
+            var settings = HttpClientSettings.Default;
+            settings.Configure<JsonDotNetSerializer>(j => j.ConfigureSettings(s => s.ContractResolver = new GithubContractResolver()));
+            settings.NamingConvention = new UnderscoreNamingConvention();
+
+            return settings;
         }
 
         private readonly IHttpClient client;
