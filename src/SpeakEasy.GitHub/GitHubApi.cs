@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Net;
 using SpeakEasy.Authenticators;
+using SpeakEasy.GitHub.Models;
 using SpeakEasy.Loggers;
 using SpeakEasy.Serializers;
 
@@ -42,6 +44,7 @@ namespace SpeakEasy.GitHub
         {
             this.client = client;
 
+            client.BeforeRequest += ClientOnBeforeRequest;
             client.AfterRequest += ClientOnAfterRequest;
 
             Repositories = new Repositories(client);
@@ -72,6 +75,11 @@ namespace SpeakEasy.GitHub
 
         public Users Users { get; private set; }
 
+        private void ClientOnBeforeRequest(object sender, BeforeRequestEventArgs e)
+        {
+
+        }
+
         private void ClientOnAfterRequest(object sender, AfterRequestEventArgs args)
         {
             var remaining = int.Parse(args.Response.GetHeaderValue("X-RateLimit-Remaining"));
@@ -86,6 +94,12 @@ namespace SpeakEasy.GitHub
             {
                 ReachingRequestLimit(this, EventArgs.Empty);
             }
+
+
+            args.Response.On(HttpStatusCode.BadRequest, (Error error) =>
+            {
+                throw new ValidationException(error);
+            });
         }
     }
 }

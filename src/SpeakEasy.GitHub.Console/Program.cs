@@ -11,7 +11,6 @@ namespace SpeakEasy.GitHub.Console
             var gist = api.Gists.List(1, 50);
 
             System.Console.WriteLine(gist.Count());
-
             System.Console.ReadLine();
         }
     }
